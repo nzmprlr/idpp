@@ -70,8 +70,7 @@ func ParseID8(s string) (ID, error) {
 func ParseID8Hex(h string) (ID, error) {
 	var id id8
 
-	l := len(h)
-	if l > 16 {
+	if len(h) > 16 {
 		return id, fmt.Errorf("invalid ID: %s", h)
 	}
 
