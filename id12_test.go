@@ -18,6 +18,14 @@ func TestNewID12(t *testing.T) {
 	assert.NoError(t, id1.Validate())
 	assert.NoError(t, id2.Validate())
 
+	pid1, err := ParseID12(id1.String())
+	assert.NoError(t, err)
+	assert.Equal(t, id1.String(), pid1.String())
+
+	pid2, err := ParseID12Hex(id2.Hex())
+	assert.NoError(t, err)
+	assert.Equal(t, id2.Hex(), pid2.Hex())
+
 	assert.True(t, id1.Time().Unix() <= id2.Time().Unix())
 	assert.True(t, id1.Time().UnixNano() <= id2.Time().UnixNano())
 

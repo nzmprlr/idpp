@@ -19,6 +19,14 @@ func TestNewID8(t *testing.T) {
 	assert.NoError(t, id1.Validate())
 	assert.NoError(t, id2.Validate())
 
+	pid1, err := ParseID8(id1.String())
+	assert.NoError(t, err)
+	assert.Equal(t, id1.String(), pid1.String())
+
+	pid2, err := ParseID8Hex(id2.Hex())
+	assert.NoError(t, err)
+	assert.Equal(t, id2.Hex(), pid2.Hex())
+
 	uid1, err := strconv.ParseUint(id1.String(), 10, 64)
 	assert.NoError(t, err)
 

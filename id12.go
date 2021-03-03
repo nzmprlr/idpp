@@ -55,7 +55,8 @@ func ParseID12Hex(h string) (ID, error) {
 	l := len(h)
 	if l == 0 || l > 24 {
 		return id, fmt.Errorf("invalid ID: %s", h)
-	} else if l&1 == 1 { // check hex is odd, if odd add zero to head
+	} else if l&1 == 1 {
+		// check string hex len is odd, if odd then add zero to head
 		h = "0" + h
 	}
 
@@ -67,7 +68,7 @@ func ParseID12Hex(h string) (ID, error) {
 	// get bytes from decoded(d) id
 	l = len(d)
 	for i := 0; i < l; i++ {
-		id[i] = d[i]
+		id[12-l+i] = d[i]
 	}
 
 	return id, id.Validate()
