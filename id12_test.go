@@ -69,7 +69,6 @@ func TestParseID12(t *testing.T) {
 		valid bool
 	}{
 		{NewID12().String(), true},
-		{NewID12().Hex(), true},
 		{"", false},
 		{"not a number", false},
 		{strings.Repeat("#", 25), false},
@@ -104,7 +103,6 @@ func TestParseID12Hex(t *testing.T) {
 		s     string
 		valid bool
 	}{
-		{NewID12().String(), true},
 		{NewID12().Hex(), true},
 		{"", false},
 		{"not a number", false},

@@ -77,7 +77,6 @@ func TestParseID8(t *testing.T) {
 		valid bool
 	}{
 		{NewID8().String(), true},
-		{NewID8().Hex(), false},
 		{"", false},
 		{"not a number", false},
 		{strings.Repeat("#", 17), false},
@@ -113,7 +112,6 @@ func TestParseID8Hex(t *testing.T) {
 		valid bool
 	}{
 		{NewID8().Hex(), true},
-		{NewID8().String(), true},
 		{"", false},
 		{"not a number", false},
 		{strings.Repeat("#", 17), false},
